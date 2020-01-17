@@ -10,7 +10,11 @@ const {persistor, store} = ConfigureStore();
 export default function App() {
     return (
         <Provider store={store}>
+        <PersistGate
+            loading={<Loading />}
+            persistor={persistor}>
             <Main />
-        </Provider>
+        </PersistGate>
+    </Provider>
     );
 }
