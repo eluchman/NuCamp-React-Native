@@ -95,9 +95,48 @@ class LoginTab extends Component {
                         buttonStyle={{backgroundColor:'#5637DD'}}
                     />
                 </View>
+                <View style={styles.formButton}>
+                    <Button
+                        onPress={() => this.props.navigation.navigate('Register')}
+                        title='Register'
+                        type='clear'
+                        icon={
+                            <Icon
+                                name='user-plus'
+                                type='font-awesome'
+                                color='blue'
+                                iconStyle={{marginRight: 10}}
+                            />
+                        }
+                        titleStyle={{color:'blue'}}
+                    />
+                </View>
             </View>
         );
     }
+}
+
+class RegisterTab extends Component {
+
+    static navigationOptions = {
+        title: 'Register',
+        tabBarIcon: ({tintColor}) => (
+            <Icon
+                name='user-plus'
+                type= 'font-awesome'
+                iconStyle={{color: tintColor}}
+            />
+        )
+    }
+
+    render() {
+        return(
+            <ScrollView>
+                
+            </ScrollView>
+        )
+    }
+
 }
 
 const styles = StyleSheet.create({
