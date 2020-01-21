@@ -132,12 +132,27 @@ class RegisterTab extends Component {
     render() {
         return(
             <ScrollView>
-                
+
             </ScrollView>
-        )
+        );
     }
 
 }
+
+    const Login = createBottomTabNavigator(
+        {
+
+            Login: LoginTab,
+            Register: RegisterTab
+        },
+        {
+            tabBarOptions: {
+                activeBackgroundColor: '#5637DD',
+            }
+
+        }
+    )
+
 
 const styles = StyleSheet.create({
     container: {
