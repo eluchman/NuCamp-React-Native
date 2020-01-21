@@ -118,6 +118,20 @@ class LoginTab extends Component {
 
 class RegisterTab extends Component {
 
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            username: '',
+            password: '',
+            firstname: '',
+            lastname: '',
+            email: '',
+            remember: false,
+            imageUrl: baseUrl + 'images/logo.png'
+        };
+    }
+
     static navigationOptions = {
         title: 'Register',
         tabBarIcon: ({tintColor}) => (
@@ -128,6 +142,19 @@ class RegisterTab extends Component {
             />
         )
     }
+
+    handleLogin() {
+        console.log(JSON.stringify(this.state));
+        if (this.state.remember) {
+            SecureStore.setItemAsync('userinfo', JSON.stringify(
+                {username: this.state.username, password: this.state.password}))
+                .catch(error => console.log('Could not save user info', error));
+        } else {
+            SecureStore.deleteItemAsync('userinfo')
+                .catch(error => console.log('Could not delete user info', error));
+        }
+    }
+
 
     render() {
         return(
@@ -148,6 +175,10 @@ class RegisterTab extends Component {
         {
             tabBarOptions: {
                 activeBackgroundColor: '#5637DD',
+                inactiveBackgroundColor: '#CEC8FF',
+                activeTintColor: '#fff',
+                inactiveTintColor: '#808080',
+                lableStyle: {fontSize: 16}
             }
 
         }
