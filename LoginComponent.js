@@ -7,7 +7,7 @@ import * as Permissions from 'expo-permissions';
 import { createBottomTabNavigator } from 'react-navigation';
 import { baseUrl } from '../shared/baseUrl';
 
-class Login extends Component {
+class LoginTab extends Component {
 
     constructor(props) {
         super(props);
@@ -20,7 +20,14 @@ class Login extends Component {
     }
 
     static navigationOptions = {
-        title: 'Login'
+        title: 'Login',
+        tabBarIcon: ({tintColor}) => (
+            <Icon
+                name='sign-in'
+                type= 'font-awesome'
+                iconStyle={{color: tintColor}}
+            />
+        )
     }
 
     handleLogin() {
@@ -77,7 +84,15 @@ class Login extends Component {
                     <Button
                         onPress={() => this.handleLogin()}
                         title='Login'
-                        color='#5637DD'
+                        icon={
+                            <Icon
+                                name='sign-in'
+                                type='font-awesome'
+                                color='#fff'
+                                iconStyle={{marginRight: 10}}
+                            />
+                        }
+                        buttonStyle={{backgroundColor:'#5637DD'}}
                     />
                 </View>
             </View>
