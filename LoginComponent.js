@@ -278,20 +278,22 @@ class RegisterTab extends Component {
 const styles = StyleSheet.create({
     container: {
         justifyContent: 'center',
-        margin: 20
+        margin: 10
     },
     formIcon: {
         marginRight: 10
     },
     formInput: {
-        padding: 10
+        padding: 8
     },
     formCheckbox: {
-        margin: 10,
+        margin: 8,
         backgroundColor: null
     },
     formButton: {
-        margin: 40
+        margin: 20,
+        marginRight: 40,
+        marginLeft: 40
     },
     image: {
         width: 60,
