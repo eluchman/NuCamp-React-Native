@@ -160,6 +160,16 @@ class RegisterTab extends Component {
         }
     }
 
+    processImage = async (imgUri) => {
+        if (imagegalleryPermission === 'grandted') {
+        const processedImage = await ImageManipulator.manipulateAsync({
+             imgUri, resize: 400, [{format: ImageManipulator.SaveFormat.PNG}]
+
+             });
+            }
+        }
+
+
     handleRegister() {
         console.log(JSON.stringify(this.state));
         if (this.state.remember) {
