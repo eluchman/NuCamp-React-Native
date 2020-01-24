@@ -160,6 +160,13 @@ class RegisterTab extends Component {
         }
     }
 
+    getImageFromGallery = async () => {
+        const cameraPermission = await Permissions.askAsync(Permissions.CAMERA);
+        const cameraRollPermission = await Permissions.askAsync(Permissions.CAMERA_ROLL);
+
+
+    }
+
     processImage = async (imgUri) => {
         
         const processedImage = await ImageManipulator.manipulateAsync({
@@ -203,6 +210,10 @@ class RegisterTab extends Component {
                         <Button
                             title='Camera'
                             onPress={this.getImageFromCamera}
+                        />
+                        <Button
+                            title='Camera'
+                            onPress={this.getImageFromGallery}
                         />
                     </View>
                     <Input
