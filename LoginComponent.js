@@ -155,19 +155,26 @@ class RegisterTab extends Component {
             });
             if (!capturedImage.cancelled) {
                 console.log(capturedImage);
-                this.setState({imageUrl: capturedImage.uri});
+                processImage(capturedImage.uri)
             }
         }
     }
 
     processImage = async (imgUri) => {
-        if (imagegalleryPermission === 'grandted') {
+        
         const processedImage = await ImageManipulator.manipulateAsync({
              imgUri, resize: 400, [{format: ImageManipulator.SaveFormat.PNG}]
 
              });
+
+             {
+                console.log(processedImage);
+                this.setState({imageUrl: processedImage.uri});
+              
             }
-        }
+
+            }
+        
 
 
     handleRegister() {
